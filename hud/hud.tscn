@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://botu0ihybnhm2"]
+
+[ext_resource type="Script" path="res://hud/hud.gd" id="1_jvt07"]
+[ext_resource type="FontFile" uid="uid://2yh42pgisd1n" path="res://assets/kenvector_future_thin.ttf" id="1_y71sh"]
+[ext_resource type="Texture2D" uid="uid://bnispunyjs3wp" path="res://assets/player_small.png" id="2_tsisd"]
+[ext_resource type="Texture2D" uid="uid://bkxfphobrmnk5" path="res://assets/play_button.png" id="3_kyfnx"]
+[ext_resource type="Texture2D" uid="uid://be4wvttu7i8tu" path="res://assets/play_button_h.png" id="4_ctc3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_430qk"]
+font = ExtResource("1_y71sh")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_opnad"]
+font = ExtResource("1_y71sh")
+font_size = 64
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_jvt07")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_430qk")
+
+[node name="LivesCounter" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="L1" type="TextureRect" parent="MarginContainer/HBoxContainer/LivesCounter"]
+layout_mode = 2
+texture = ExtResource("2_tsisd")
+stretch_mode = 5
+
+[node name="L2" type="TextureRect" parent="MarginContainer/HBoxContainer/LivesCounter"]
+layout_mode = 2
+texture = ExtResource("2_tsisd")
+stretch_mode = 5
+
+[node name="L3" type="TextureRect" parent="MarginContainer/HBoxContainer/LivesCounter"]
+layout_mode = 2
+texture = ExtResource("2_tsisd")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -94.0
+offset_right = 124.5
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Message" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Space Rocks!"
+label_settings = SubResource("LabelSettings_opnad")
+horizontal_alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_kyfnx")
+texture_hover = ExtResource("4_ctc3u")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
