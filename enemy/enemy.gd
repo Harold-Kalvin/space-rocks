@@ -30,9 +30,9 @@ func _on_gun_cooldown_timeout():
 
 
 func _on_body_entered(body: Node2D):
-	if body.is_in_group("rocks"):
-		return
-	explode()
+	if body.name == "Player":
+		explode()
+		body.shield -= 50
 
 
 func shoot():
