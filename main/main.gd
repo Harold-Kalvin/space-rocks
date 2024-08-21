@@ -31,6 +31,20 @@ func _on_rock_exploded(size, radius, pos, vel):
 		spawn_rock(size - 1, newpos, newvel)
 
 
+func _input(event):
+	if event.is_action_pressed("pause"):
+		if not playing:
+			return
+		get_tree().paused = not get_tree().paused
+		var message = $HUD/VBoxContainer/Message
+		if get_tree().paused:
+			message.text = "Paused"
+			message.show()	
+		else:
+			message.text = ""
+			message.hide()
+
+
 func new_game():
 	get_tree().call_group("rocks", "queue_free")
 	level = 0
