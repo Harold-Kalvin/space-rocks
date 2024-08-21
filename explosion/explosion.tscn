@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://1my4ri5qfe8y"]
+[gd_scene load_steps=7 format=3 uid="uid://1my4ri5qfe8y"]
 
 [ext_resource type="Texture2D" uid="uid://dc6ug204l8h0j" path="res://assets/explosion.png" id="1_ed6k4"]
+[ext_resource type="Script" path="res://explosion/explosion.gd" id="2_gewep"]
+[ext_resource type="AudioStream" uid="uid://c3dlmnwh12erv" path="res://assets/sounds/explosion.wav" id="2_xwhpa"]
 
 [sub_resource type="Animation" id="Animation_1ru6c"]
 length = 0.001
@@ -45,8 +47,12 @@ texture = ExtResource("1_ed6k4")
 hframes = 8
 vframes = 8
 frame = 63
+script = ExtResource("2_gewep")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_sp03y")
 }
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xwhpa")

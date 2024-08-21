@@ -32,7 +32,7 @@ func start(_position, _velocity, _size):
 func explode():
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.hide()
-	$Explosion/AnimationPlayer.play("explosion")
+	$Explosion.play()
 	$Explosion.show()
 	exploded.emit(size, radius, position, linear_velocity)
 	linear_velocity = Vector2.ZERO

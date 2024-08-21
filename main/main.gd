@@ -55,6 +55,7 @@ func _input(event):
 
 
 func new_game():
+	$Music.play()
 	get_tree().call_group("rocks", "queue_free")
 	level = 0
 	score = 0
@@ -66,6 +67,7 @@ func new_game():
 
 
 func new_level():
+	$LevelupSound.play()
 	level += 1
 	$HUD.show_message("Wave %s" % level)
 	for i in level:
@@ -74,6 +76,7 @@ func new_level():
 
 
 func game_over():
+	$Music.stop()
 	playing = false
 	$HUD.game_over()
 

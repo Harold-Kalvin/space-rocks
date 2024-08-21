@@ -36,6 +36,7 @@ func _on_body_entered(body: Node2D):
 
 
 func shoot():
+	$LaserSound.play()
 	var dir = global_position.direction_to(target.global_position)
 	dir = dir.rotated(randf_range(-bullet_spread, bullet_spread))
 	var bullet = bullet_scene.instantiate()
@@ -62,6 +63,6 @@ func explode():
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.hide()
 	$Explosion.show()
-	$Explosion/AnimationPlayer.play("explosion")
+	$Explosion.play()
 	await $Explosion/AnimationPlayer.animation_finished
 	queue_free()
