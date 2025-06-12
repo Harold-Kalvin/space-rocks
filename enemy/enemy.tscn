@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dw1qcxrlruwhc"]
 
-[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_n13mk"]
+[ext_resource type="Script" uid="uid://n6ry0rys38gp" path="res://enemy/enemy.gd" id="1_n13mk"]
 [ext_resource type="Texture2D" uid="uid://bqusrdb28xcdy" path="res://assets/enemy_saucer.png" id="1_rpc5o"]
 [ext_resource type="PackedScene" uid="uid://bfcla1g8fvqk8" path="res://enemy_bullet/enemy_bullet.tscn" id="2_1r4lk"]
 [ext_resource type="PackedScene" uid="uid://odwib61upwd3" path="res://enemy_paths/enemy_paths.tscn" id="2_emhc4"]
@@ -10,6 +10,21 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ovq5j"]
 radius = 36.4006
+
+[sub_resource type="Animation" id="Animation_6601a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_cy384"]
 resource_name = "flash"
@@ -28,25 +43,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_6601a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vhvtj"]
 _data = {
-"RESET": SubResource("Animation_6601a"),
-"flash": SubResource("Animation_cy384")
+&"RESET": SubResource("Animation_6601a"),
+&"flash": SubResource("Animation_cy384")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0d3u7"]

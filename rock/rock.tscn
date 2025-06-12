@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0rk0tvuh6e72"]
 
-[ext_resource type="Script" path="res://rock/rock.gd" id="1_mkvjp"]
+[ext_resource type="Script" uid="uid://ct82e4urso7d1" path="res://rock/rock.gd" id="1_mkvjp"]
 [ext_resource type="Texture2D" uid="uid://cysbx06admqah" path="res://assets/rock.png" id="1_tvsu7"]
 [ext_resource type="PackedScene" uid="uid://1my4ri5qfe8y" path="res://explosion/explosion.tscn" id="3_hgjhx"]
 

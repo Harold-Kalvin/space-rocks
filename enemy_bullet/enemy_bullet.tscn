@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfcla1g8fvqk8"]
 
 [ext_resource type="Texture2D" uid="uid://c0ooui0hjj6db" path="res://assets/laser_green.png" id="1_60y02"]
-[ext_resource type="Script" path="res://enemy_bullet/enemy_bullet.gd" id="1_ekts2"]
+[ext_resource type="Script" uid="uid://dnt7dlecpm34b" path="res://enemy_bullet/enemy_bullet.gd" id="1_ekts2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3won"]
 radius = 2.0
